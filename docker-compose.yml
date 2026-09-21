@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: modulart-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: modulart
+      POSTGRES_PASSWORD: modulart
+      POSTGRES_DB: modulart
+    ports:
+      - "5432:5432"
+    volumes:
+      - modulart_pg:/var/lib/postgresql/data
+
+volumes:
+  modulart_pg:
