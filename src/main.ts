@@ -26,11 +26,13 @@ async function bootstrap() {
 
   app.useGlobalFilters(new HttpExceptionFilter());
   app.enableCors();
+  app.getHttpAdapter().getInstance().set('trust proxy', 1);
 
   const swagger = new DocumentBuilder()
     .setTitle('ModulArt API')
     .setDescription('CRUD de catálogo y cotizaciones — estudio NestJS / TypeORM')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
   SwaggerModule.setup('docs', app, SwaggerModule.createDocument(app, swagger));
 

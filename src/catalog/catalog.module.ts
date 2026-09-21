@@ -8,9 +8,10 @@ import { CategoriesService } from './application/categories.service';
 import { ProductsController } from './presentation/products.controller';
 import { CategoriesController } from './presentation/categories.controller';
 import { SeedService } from '../database/seed.service';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Category, Product])],
+  imports: [TypeOrmModule.forFeature([Category, Product]), AuthModule],
   controllers: [ProductsController, CategoriesController],
   providers: [ProductRepository, ProductsService, CategoriesService, SeedService],
   exports: [TypeOrmModule, ProductRepository],

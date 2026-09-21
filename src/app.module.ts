@@ -4,6 +4,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { HealthModule } from './health/health.module';
 import { CatalogModule } from './catalog/catalog.module';
 import { QuotesModule } from './quotes/quotes.module';
+import { AuthModule } from './auth/auth.module';
+import { MediaModule } from './media/media.module';
 
 /**
  * AppModule ≈ Startup/Program.cs + IServiceCollection.
@@ -61,8 +63,10 @@ import { QuotesModule } from './quotes/quotes.module';
       },
     }),
     HealthModule,
+    AuthModule,
     CatalogModule,
     QuotesModule,
+    MediaModule,
   ],
 })
 export class AppModule {}
